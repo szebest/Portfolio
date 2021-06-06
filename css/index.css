@@ -1,0 +1,434 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    
+    min-height: 100%;
+    background: rgb(66, 88, 128);
+
+    font-family: 'Sigmar One', cursive;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 5px;
+}
+
+section {
+    text-align: center;
+    justify-content: center;
+    padding: 100px 25px 0px;
+}
+
+#navbar {
+    z-index: 10000;
+    min-width: 100%;
+    max-width: 100%;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    background-color: rgba(33,33,33,0.65);
+    color: white;
+    min-height: 90px;
+
+    transition: background-color 1s 0.2s, color 1s 0.2s;
+}
+
+#navbar .toggle-btn {
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70px;
+    height: 50px;
+}
+
+#navbar .toggle-btn .bar {
+    height: 10px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+#navbar.top {
+    background-color: rgba(50,150,200,1);
+    color: black;
+}
+
+#navbar .title {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0 1em;
+    margin-right: auto;
+}
+
+.site-navigation ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    list-style: none;
+}
+
+.site-navigation li {
+    list-style-type: none;
+    position: relative;
+}
+
+#navbar a {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+
+.site-navigation a {
+    padding: 0 2em;
+}
+
+.site-navigation a::before
+{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #333;
+    top: 0;
+
+    transition: 0.4s;
+}
+
+.site-navigation a:hover::before
+{
+    width: 100%;
+    background-color: #999;
+}
+
+.navbar .text p {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+nav.top::after {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 90%;
+    background-color: #333;
+    top: 0;
+    left: 5%;
+    margin-top: 5px;
+}
+
+header {
+    top: 0;
+    padding: 8em 0 3em;
+    background: rgba(50,150,200,1);
+    margin-bottom: 1em;
+    text-align: center;
+    clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+}
+
+@media only screen and (max-width: 810px) {
+    #navbar .toggle-btn {
+        display: flex;
+    }
+
+    #navbar .site-navigation {
+        display: none;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar .site-navigation ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav.top::after {
+        width: 0%;
+    }
+
+    #navbar .site-navigation.active {
+        display: flex;
+    }
+
+    #navbar .title {
+        min-height: 90px;
+    }
+
+    #navbar li::after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        opacity: 0;
+        top: 0;
+
+        transition: 0.4s;
+    }
+
+    #navbar.top li::after {
+        background-color: #333;
+        opacity: 1;
+    }
+}
+
+header svg {
+    margin-bottom: 1.5rem;
+    animation: scale-up 1s infinite alternate;
+}
+
+header h1 {
+    margin: 0 15% 2rem;
+}
+
+@keyframes scale-up {
+    from {
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        transform: scale(0.7, 0.7);
+    }
+}
+
+.about img {
+    border-radius: 15%;
+}
+
+.about p {
+    font-size: 30px;
+}
+
+section::after {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 90%;
+    background-color: #333;
+    top: 0;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container div {
+    background-color: gray;
+    border-radius: 25px;
+    margin: 5px auto;
+    text-align: center;
+    justify-content: center;
+    width: 360px;
+    background-color: rgba(128, 128, 128, 0.5);
+
+    transition: 0.15s linear;
+}
+
+@media only screen and (max-width: 870px) {
+    .container
+    {
+        width: auto;
+        flex-flow: column;
+    }
+
+    .container div
+    {
+        width: 85%;
+    }
+
+    .container div img {
+        width: 85%;
+    }
+
+    .container div h1 {
+        align-items: center;
+    }
+}
+
+.skills {
+    text-align: center;
+    justify-content: center;
+}
+
+.skills div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 15px 25px 5px;
+}
+
+.skills div div {
+    flex-direction: column;
+
+    transition: 0.25s;
+}
+
+.skills div div:hover {
+    transform: scale(1.5);
+}
+
+@media only screen and (max-width: 500px) {
+    .skills div {
+        flex-direction: column;
+    }
+}
+
+#contactSources {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#contactSources svg {
+    min-width: 50px;
+    min-height: 50px;
+}
+
+#contactSources ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+#contactSources li {
+    min-width: 200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+
+    transition: 0.2s linear;
+}
+
+#contactSources li:hover {
+    color: gray;
+
+    transform: scale(1.5);
+}
+
+#contactSources a {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+#contactSources {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+textarea {
+    resize: none;
+}
+
+#sendMail p {
+    font-size: 2rem;
+}
+
+#sendMail .inputholder {
+    position: relative;
+    margin-bottom: 1rem;
+    transition: 0.25s ease-in;
+    width: auto;
+}
+
+#sendMail .label {
+    position: absolute;
+    cursor: text;
+    font-size: 1rem;
+    color: #aaa;
+    display: block;
+    margin: 0;
+    padding: 0 0.5rem;
+    opacity: 1;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.25s ease-in;
+    background-color: rgb(66, 88, 128);
+    user-select: none;
+}
+
+#sendMail .input {
+    width: 400px;
+    border: 2px solid gray;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.8rem 0.8rem;
+    box-shadow: none;
+    background: none;
+    outline: none;
+    border-radius: 0.5rem;
+}
+
+#sendMail #message {
+    width: 400px;
+    height: 250px;
+}
+
+#sendMail #emailForm .inputholder .input:hover {
+    border-color: rgb(85, 184, 218);
+}
+
+#sendMail #emailForm .inputholder .input:focus {
+    border-color: rgb(11, 166, 218);
+}
+
+#sendMail #emailForm .inputholder .input:focus ~ .label, #sendMail #emailForm .inputholder .withValue ~ .label {
+    font-size: 0.85rem;
+    top: -7px;
+    transform: translateX(-50%);
+}
+
+#sendMail .submit {
+    color: #aaa;
+    width: 400px;
+    border: 2px solid gray;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.8rem 0.8rem;
+    box-shadow: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+#sendMail .submit:hover {
+    border-color: rgb(85, 184, 218);
+}
